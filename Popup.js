@@ -13,15 +13,14 @@
         });
 
         function Popup(element, settings) {
-        	// console.log(settings);
             this.element = $(element);
-            console.log()
-            // if (settings typeof == 'undefined') {
-            	if (settings.appenCloseBtn) {
+
+            if (typeof settings !== 'undefined') {
+            	if (settings.appendCloseBtn) {
 	            	this.createCloseButton();
 	            }
-            // }
-            
+            }
+
             this.init();
         }
 
@@ -33,7 +32,7 @@
 
         this.element.css({
             'visibility': 'hidden',
-            'opacity': 0,
+            'opacity': 0
         });
 
         $('body').append($(this.element));
@@ -104,7 +103,7 @@
             args = Array.prototype.slice.call(arguments, 1);
 
         for (var i = 0; i < l; i++) {
-            if (typeof opt == 'object' || typeof opt == 'undefined') {
+            if (typeof opt == 'object') {
               that[i].popup = new Popup(that[i], opt);
             } else {
             	that[i].popup = new Popup(that[i]);
@@ -113,7 +112,9 @@
     };
 
     $(document).ready(function () {
-        $('[data-popup]').popup();
+        $('[data-popup]').popup({
+            appendCloseBtn: true
+        });
         $('[data-popup]')
             .on('open', function () {
                 $(this).children().addClass('fadeIn');

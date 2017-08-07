@@ -6,17 +6,28 @@
 </head>
 <style type="text/css">
 	[data-popup] {
+		position: fixed;
+		z-index: 999;
 		width: 100%;
 		height: 100vh;
+		background-color: rgba(#333232, .5);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		visibility: hidden;
+		top: 0;
+		left: 0;
 	}
 </style>
 <body>
     <a href="#popup" data-popup-link>open</a>
 	<div data-popup id='popup'><div class="popup-content">content</div></div>
+	<div data-popup id='popup1'><div class="popup-content">content</div></div>
+	<div data-popup id='popup2'><div class="popup-content">content</div></div>
 </body>
 <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   crossorigin="anonymous"></script>
-<script type="text/javascript" src='Popup.js'></script>
+<script type="text/javascript" src='PopupES6.js'></script>
 </html>
